@@ -7,14 +7,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: `${baseUrl}/`, changeFrequency: 'daily', priority: 1.0 },
-    { url: `${baseUrl}/open-data`, changeFrequency: 'daily', priority: 0.9 },
-    { url: `${baseUrl}/complaints`, changeFrequency: 'daily', priority: 0.9 },
-    { url: `${baseUrl}/maps`, changeFrequency: 'daily', priority: 0.8 },
-    { url: `${baseUrl}/games`, changeFrequency: 'weekly', priority: 0.6 },
-    { url: `${baseUrl}/contact`, changeFrequency: 'monthly', priority: 0.3 },
-    { url: `${baseUrl}/privacy`, changeFrequency: 'yearly', priority: 0.2 },
-    { url: `${baseUrl}/terms`, changeFrequency: 'yearly', priority: 0.2 },
-    { url: `${baseUrl}/rti-guidelines`, changeFrequency: 'monthly', priority: 0.4 },
-    { url: `${baseUrl}/volunteer`, changeFrequency: 'weekly', priority: 0.5 },
+    { url: `${baseUrl}/state-ranking`, changeFrequency: 'daily', priority: 0.9 },
+    { url: `${baseUrl}/governance-dashboard`, changeFrequency: 'daily', priority: 0.9 },
+    { url: `${baseUrl}/public-metrics`, changeFrequency: 'daily', priority: 0.8 },
+    { url: `${baseUrl}/system-transparency`, changeFrequency: 'daily', priority: 0.8 },
+    { url: `${baseUrl}/open-data.json`, changeFrequency: 'weekly', priority: 0.6 },
   ];
 }

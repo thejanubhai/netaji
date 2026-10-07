@@ -14,10 +14,10 @@ type AdminAnalysisResult = {
   timestamp: string;
 };
 
-export async function adminAiChat(message: string, _userEmail: string) {
+export async function adminAiChat(message: string, userEmail: string) {
   return {
     success: true,
-    message: `I received your message: "${message}". I'm analyzing the platform data and ready to help you with improvements, code generation, or data insights.`,
+    message: `I received your message from ${userEmail || 'system'}: "${message}". I'm analyzing the platform data and ready to help you with improvements, code generation, or data insights.`,
     suggestions: [
       'Analyze politician data for trends',
       'Generate a report on complaint resolution',

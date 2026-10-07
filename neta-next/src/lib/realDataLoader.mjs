@@ -273,5 +273,10 @@ export function getFallbackPoliticians(count = 6) {
   ].slice(0, count);
 }
 
-export default { fetchMultipleRealPoliticians, fetchOneRealPolitician, getFallbackPoliticians };
+const realDataLoader = {
+  fetchMultipleRealPoliticians,
+  fetchOneRealPolitician,
+  getFallbackPoliticians,
+};
 
+export default realDataLoader;

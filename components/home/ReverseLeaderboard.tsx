@@ -1,10 +1,9 @@
 'use client';
 
 import React from 'react';
-import { Politician } from '../../types';
 import { motion } from 'framer-motion';
 import { AlertTriangle, TrendingUp, ThumbsDown, ArrowRight, Users } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Politician } from '../../types';
 import ImageWithFallback from '../ImageWithFallback';
 
 interface Props {
@@ -84,16 +83,16 @@ const ReverseLeaderboard: React.FC<Props> = ({ politicians, isLoading = false })
                 <h3 className="text-xl font-black text-slate-900 flex items-center gap-2">
                     <AlertTriangle className="text-red-500" /> Needs Improvement
                 </h3>
-                <Link to="/rankings?sort=worst" className="text-xs font-bold text-blue-600 hover:underline flex items-center gap-1">
+                <a href="/state-ranking?sort=worst" className="text-xs font-bold text-blue-600 hover:underline flex items-center gap-1">
                     View All <ArrowRight size={12}/>
-                </Link>
+                </a>
             </div>
 
             {/* The Podium of Shame (Top 3 Worst) */}
             <div className="grid grid-cols-3 gap-4 items-end">
                 {topWorst.map((p, i) => {
                     return (
-                        <Link key={p.id} to={`/politician/${p.slug}`}>
+                        <a key={p.id} href={`/politician/${p.slug}`}>
                             <motion.div 
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -109,14 +108,14 @@ const ReverseLeaderboard: React.FC<Props> = ({ politicians, isLoading = false })
                                 <h4 className="font-bold text-slate-900 text-sm leading-tight line-clamp-2 mb-1 group-hover:text-blue-600">{p.name}</h4>
                                 <p className="text-[10px] text-slate-500 font-medium mb-3">{p.party}</p>
                             
-                            <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden mb-1">
-                                <div className="h-full bg-red-500" style={{ width: `${p.approvalRating}%` }}></div>
-                            </div>
-                            <div className="flex items-center gap-1 text-red-600 font-bold text-xs">
-                                <ThumbsDown size={10} /> {p.approvalRating}%
-                            </div>
+                                <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden mb-1">
+                                    <div className="h-full bg-red-500" style={{ width: `${p.approvalRating}%` }}></div>
+                                </div>
+                                <div className="flex items-center gap-1 text-red-600 font-bold text-xs">
+                                    <ThumbsDown size={10} /> {p.approvalRating}%
+                                </div>
                             </motion.div>
-                        </Link>
+                        </a>
                     );
                 })}
             </div>
@@ -128,7 +127,7 @@ const ReverseLeaderboard: React.FC<Props> = ({ politicians, isLoading = false })
                 </div>
                 <div className="divide-y divide-slate-100">
                     {rest.map((p, i) => (
-                        <Link key={p.id} to={`/politician/${p.slug}`} className="p-4 flex items-center gap-4 hover:bg-slate-50 transition-colors cursor-pointer group">
+                        <a key={p.id} href={`/politician/${p.slug}`} className="p-4 flex items-center gap-4 hover:bg-slate-50 transition-colors cursor-pointer group">
                             <span className="text-slate-400 font-bold text-sm">#{i + 4}</span>
                             <div className="w-10 h-10 rounded-full overflow-hidden bg-slate-200 shrink-0">
                                 <ImageWithFallback src={p.photoUrl} alt={p.name} className="w-full h-full object-cover" />
@@ -143,7 +142,7 @@ const ReverseLeaderboard: React.FC<Props> = ({ politicians, isLoading = false })
                                     <TrendingUp size={8} /> Approval
                                 </div>
                             </div>
-                        </Link>
+                        </a>
                     ))}
                 </div>
             </div>
